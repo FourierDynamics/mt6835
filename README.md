@@ -15,7 +15,7 @@
 
 ## 下载
 在platformio.ini中：
-lib_deps =  
+lib_deps =  https://github.com/FourierDynamics/mt6835.git
 ### 示例
 库中提供了两个示例 :
 

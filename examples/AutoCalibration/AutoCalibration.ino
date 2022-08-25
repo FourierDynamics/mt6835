@@ -1,8 +1,6 @@
 /*
-  ReadAngle
+  calibration
 
-  Read the angle position from an MT6835 rotary encoder.
-  Start the terminal with a speed of 9600 Bauds to see the measured angle.
 
   The encoder is connected as follows:
   MT6835         ESP32 Board
@@ -40,6 +38,12 @@
 5. 自校准成功后，等待>6秒钟，请务必给芯片断电
 6. 芯片从重新上电才可以进行别的操作
 
+
+使用 mt6835.readCalibrationStatus() 读取校准状态
+打印结果：CALI_NO             //没有进行校准
+         CALI_ING            //正在校准
+         CALI_FAIL           //校准失败
+         CALI_SUCSESS        //校准成功
 
 */
 

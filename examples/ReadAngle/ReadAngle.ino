@@ -15,15 +15,13 @@
   See Arduino SPI Reference to see how to connect with other boards.
   https://www.arduino.cc/en/reference/SPI
 
-  Created 05 August 2022
-  By lep
-
-
 
 */
 
 // Include the library
 #include <MT6835.h>
+
+#define  CAL_EN_PIN    17   //自校准模式控制引脚
 
 // Define spi clock. 
 uint32_t spiClock = 16000000;  //MT6835最高支持16MHz的SPI时钟
@@ -35,6 +33,8 @@ void setup() {
   // Initialize a Serial Communication in order to
   // print the measured angle.
   Serial.begin(115200);
+  pinMode(CAL_EN_PIN, OUTPUT);
+  digitalWrite(CAL_EN_PIN, LOW);
 
   //设置客户端自校准所采用的的校准区间 400~800 转/分钟，详见mt6835 datasheet
   mt6835.writeRegister(AUTOCAL_FREQ,0x30);
