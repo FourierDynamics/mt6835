@@ -50,7 +50,7 @@
 // Include the library
 #include <MT6835.h>
 
-#define  CAL_EN_PIN    17   //自校准模式控制引脚
+#define  CAL_EN_PIN    32   //自校准模式控制引脚
 
 // Define spi clock. 
 uint32_t spiClock = 16000000;  //MT6835最高支持16MHz的SPI时钟

@@ -21,7 +21,7 @@
 // Include the library
 #include <MT6835.h>
 
-#define  CAL_EN_PIN    17   //自校准模式控制引脚
+#define  CAL_EN_PIN    32   //自校准模式控制引脚,根据实际情况修改
 
 // Define spi clock. 
 uint32_t spiClock = 16000000;  //MT6835最高支持16MHz的SPI时钟
@@ -34,10 +34,10 @@ void setup() {
   // print the measured angle.
   Serial.begin(115200);
   pinMode(CAL_EN_PIN, OUTPUT);
-  digitalWrite(CAL_EN_PIN, LOW);
+  digitalWrite(CAL_EN_PIN, LOW);//初始化时需要将自校准控制引脚拉低，防止进入自校准模式
 
-  //设置客户端自校准所采用的的校准区间 400~800 转/分钟，详见mt6835 datasheet
-  mt6835.writeRegister(AUTOCAL_FREQ,0x30);
+
+  mt6835.writeRegister(AUTOCAL_FREQ,0x30);  //设置客户端自校准所采用的的校准区间 400~800 转/分钟，详见mt6835 datasheet
 
   //设置AB脉冲分辨率 16384脉冲/圈，详见mt6835 datasheet
   ABZ_RES abz_res ;
